@@ -37,7 +37,7 @@ p{margin:6px 0;line-height:1.45}
 .cell svg{width:100%;height:auto;display:block}
 .rec{display:flex;justify-content:center;margin-bottom:-6px}
 .bar{height:22px;border-radius:12px;background:#0a1820;overflow:hidden;border:2px solid #24536a;position:relative}
-.bar>div{height:100%;background:linear-gradient(90deg,var(--teal),var(--lime));width:0}
+#fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--lime));width:0}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
 .tile{height:74px;border-radius:14px;background:#0f2833;border:2px dashed #24536a;display:flex;align-items:center;justify-content:center;
   text-align:center;font-weight:700;font-size:14px;padding:4px;color:var(--ink)}
@@ -49,8 +49,8 @@ p{margin:6px 0;line-height:1.45}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
 .opt{background:var(--card2);border:2px solid #2a5566;border-radius:14px;padding:16px 8px;font-size:16px;font-weight:700;color:var(--ink);cursor:pointer;min-height:64px}
 .opt.used{opacity:.25;pointer-events:none}
-.zone{position:absolute;top:0;bottom:0;background:rgba(182,242,74,.55)}
-.marker{position:absolute;top:-4px;bottom:-4px;width:6px;background:#fff;border-radius:3px;box-shadow:0 0 8px #fff}
+.zone{position:absolute;top:0;bottom:0;background:rgba(182,242,74,.75)}
+.marker{position:absolute;top:0;bottom:0;width:8px;background:#fff;border-radius:4px;box-shadow:0 0 8px #fff;z-index:2}
 .stage{background:var(--card);border-radius:18px;padding:8px;margin-top:10px;text-align:center}
 .stage svg{max-width:100%;height:auto}
 .modal{position:fixed;inset:0;background:rgba(5,14,19,.82);display:flex;align-items:flex-end;justify-content:center;padding:16px;z-index:9}
@@ -273,7 +273,7 @@ function level5() {
   clearAll(); S.lvl = 5;
   let pos = 0, dir = 1, speed = 1.6, miss = 0;
   const zoneW = 20, zoneX = 20 + Math.random() * 55;
-  app.innerHTML = hud() + head(5, "Новых фагов уже сотни. Нажми «Лизис!» ровно тогда, когда белая полоска в зелёной зоне, — и клетка лопнет.") +
+  app.innerHTML = hud() + head(5, "Новых фагов уже сотни. Белая полоска бегает по шкале. Нажми «Лизис!» в тот момент, когда она в зелёной зоне, — и клетка лопнет.") +
     `<div class="stage"><svg viewBox="0 0 300 160" width="100%">
       <rect id="cellR" x="30" y="40" width="240" height="90" rx="45" fill="#DDF4EE" stroke="#0E7C7B" stroke-width="7"/>
       <g id="inside"></g></svg></div>
